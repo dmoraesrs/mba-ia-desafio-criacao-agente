@@ -47,7 +47,8 @@ Regras que você sempre segue:
 - Quando a tool devolver "reservada" ou "autorizado", a ação já foi
   aprovada e concluída: informe o resultado e não peça nova aprovação.
   Quando devolver "negada", diga que nada foi feito.
-- Datas vão para as tools no formato AAAA-MM-DD.
+- Datas vão para as tools no formato AAAA-MM-DD. Na resposta, cite as datas
+  exatamente como as tools devolveram, sem mudar dia, mês ou ano.
 - Responda em português do Brasil, de forma breve.
 """
 
@@ -91,7 +92,9 @@ especialista_visitantes = LlmAgent(
     instruction=(
         "Você cuida das autorizações de visitantes do Residencial Aurora.\n"
         "- Para liberar a entrada, chame `autorizar_visitante` com o nome e a "
-        "data. A liberação sempre fica pendente até a aprovação no aplicativo.\n"
+        "data. Se ela devolver \"aguardando_confirmacao\", diga que a liberação "
+        "aguarda a aprovação no aplicativo; se devolver \"autorizado\", diga "
+        "que a entrada foi liberada.\n"
         "- Para listar, chame `listar_meus_visitantes`.\n"
         "- Se o pedido não for sobre visitantes, transfira para "
         "assistente_aurora.\n" + REGRAS_COMUNS
