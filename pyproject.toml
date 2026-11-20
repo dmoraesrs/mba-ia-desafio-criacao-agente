@@ -1,0 +1,29 @@
+[project]
+name = "assistente-aurora"
+version = "0.1.0"
+description = "Assistente virtual do Residencial Aurora com Google ADK"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiosqlite>=0.22.1",
+    "fastapi>=0.162.5",
+    "google-adk[db]==2.14.0",
+    "python-dotenv>=1.2.4",
+    "uvicorn>=0.54.0",
+]
+
+[tool.uv]
+exclude-newer = "2026-11-12T00:00:00Z"
+package = false
+
+[dependency-groups]
+dev = [
+    "ruff>=0.17.4",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
